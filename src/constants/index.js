@@ -49,7 +49,7 @@ export const PROJECTS = [
     description:
       "Um site de divulgação de um petshop e venda de cursos, onde desenvolvi páginas dentro dele, foi feito também um forms integrado com o mautic para gerencimanto de leads. Após finalizar esse website o cliente solicitou um LMS dentro do wordpress para passar esse curso, onde eu também participei do desenvolvimento do mesmo.",
     link: "https://luisestrelas.com.br/",
-    technologies: ["HTML", "CSS", "JavaScript", "Mautic"],
+    technologies: ["HTML", "CSS", "JavaScript", "Mautic", "PHP"],
   },
 
 ];
