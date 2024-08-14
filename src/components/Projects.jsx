@@ -19,7 +19,7 @@ const Projects = () => {
                     transition={{duration: 1}}
                     className="w-full lg:w-1/4">
                         <a href={project.link} target="_blank" rel="noopener noreferrer">
-                          <img className='mb-6 rounded' src={project.image} width={150} height={150} alt={project.title} />
+                          <img className='mb-6 rounded' src={project.image} width={250} height={150} alt={project.title} />
                         </a>
                     </motion.div>
                     <motion.div
