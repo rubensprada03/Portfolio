@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
+import Rubens from '../assets/RubensFoto.jpeg';
 import { HERO_CONTENT } from '../constants';
 
 const HeroContainer = styled.div`
@@ -28,7 +30,7 @@ const TextContainer = styled.div`
   }
 `;
 
-const Title = styled.h1`
+const Title = styled(motion.h1)` // Use motion here
   padding-bottom: 4rem;
   font-size: 3.75rem;
   font-weight: 100;
@@ -39,7 +41,7 @@ const Title = styled.h1`
   }
 `;
 
-const Subtitle = styled.span`
+const Subtitle = styled(motion.span)`
   background: linear-gradient(270deg, #d63a7d, #64748b, #8b5cf6);
   background-size: 300% 300%;
   -webkit-background-clip: text;
@@ -62,8 +64,7 @@ const Subtitle = styled.span`
   }
 `;
 
-
-const Description = styled.p`
+const Description = styled(motion.p)`
   margin: 0.5rem 0;
   max-width: 40rem;
   padding: 1.5rem 0;
@@ -79,10 +80,19 @@ const RightSection = styled.div`
   }
 `;
 
-const ImageContainer = styled.div`
+const ImageContainer = styled(motion.div)`
   display: flex;
   justify-content: center;
 `;
+
+const container = (delay) => ({
+  hidden: {x: -100, opacity: 0},
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {duration: 0.5, delay: delay}
+  }
+})
 
 const Hero = () => {
   return (
@@ -90,14 +100,33 @@ const Hero = () => {
       <HeroContent>
         <LeftSection>
           <TextContainer>
-            <Title>Rubens Prada</Title>
-            <Subtitle>Full Stack Developer</Subtitle>
-            <Description>{HERO_CONTENT}</Description>
+            <Title 
+              variants={container(0)}
+              initial="hidden"
+              animate="visible"
+            >
+              Rubens Arini Prada
+            </Title>
+            <Subtitle
+              variants={container(0.5)}
+              initial="hidden"
+              animate="visible"
+            > 
+              Full Stack Developer</Subtitle>
+            <Description
+              variants={container(1)}
+              initial="hidden"
+              animate="visible"
+            >{HERO_CONTENT}</Description>
           </TextContainer>
         </LeftSection>
         <RightSection>
           <ImageContainer>
-            <img src="" alt="Rubens Prada" />
+            <motion.img
+              initial={{ x: 100, opacity:0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, delay: 1.2 }}
+             src={Rubens} style={{ borderRadius: '9999px' }} width={500} height={300} alt="Rubens Prada" />
           </ImageContainer>
         </RightSection>
       </HeroContent>

@@ -1,6 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import aboutImg from '../assets/about.jpg';
 import { ABOUT_TEXT } from '../constants';
+
 
 const AboutContainer = styled.div`
   border-bottom: 1px solid #1a1a1a;
@@ -13,7 +15,7 @@ const Title = styled.h2`
   font-size: 2.25rem;
 `;
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
 `;
@@ -26,7 +28,7 @@ const ImageSection = styled.div`
   }
 `;
 
-const ImageContainer = styled.div`
+const ImageContainer = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +38,7 @@ const AboutImage = styled.img`
   border-radius: 1rem;
 `;
 
-const TextSection = styled.div`
+const TextSection = styled(motion.div)`
   width: 100%;
   @media (min-width: 1024px) {
     width: 50%;
@@ -63,11 +65,18 @@ const About = () => {
       <Title>Sobre Mim</Title>
       <ContentWrapper>
         <ImageSection>
-          <ImageContainer>
+          <ImageContainer
+                  whileInView={{opacity: 1, x: 0}}
+        initial={{opacity: 0, x: -100}}
+        transition={{ duration: 0.5 }}>
             <AboutImage src={aboutImg} alt="Sobre Mim" />
           </ImageContainer>
         </ImageSection>
-        <TextSection>
+        <TextSection
+          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: 100 }}
+          transition={{ duration: 0.5 }}
+        >
           <TextContainer>
             <Text>{ABOUT_TEXT}</Text>
           </TextContainer>
